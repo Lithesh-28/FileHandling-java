@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class FileHandling {
     public static void main(String[] args) {
-        File file = new File("hello.txt");
+        File file = new File("test.txt");
 
         try {
             if (file.createNewFile()) {
@@ -51,10 +51,10 @@ public class FileHandling {
             throw new RuntimeException(e);
         }
 
-//        if (file.delete()){
-//            System.out.println("File Deleted Successfully: ");
-//        }else{
-//            System.out.println("File does not exist");
-//        }
+        if (file.delete()){
+            System.out.println("File Deleted Successfully: ");
+        }else{
+            System.out.println("File does not exist");
+        }
     }
 }
