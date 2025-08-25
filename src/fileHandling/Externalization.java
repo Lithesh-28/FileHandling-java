@@ -1,3 +1,5 @@
+package fileHandling;
+
 import java.io.*;
 
 public class Externalization implements Externalizable {

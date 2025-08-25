@@ -1,3 +1,5 @@
+package serializeDemo;
+
 import java.io.*;
 
 public class CustomSerialization implements Serializable {
@@ -24,7 +26,7 @@ public class CustomSerialization implements Serializable {
 
     @Override
     public String toString() {
-        return "CustomSerialization[" +
+        return "serializeDemo.CustomSerialization[" +
                 "userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", id=" + id +
