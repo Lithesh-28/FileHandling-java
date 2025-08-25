@@ -13,8 +13,8 @@ class ReplaceString{
             StringBuilder word = new StringBuilder();
             while (sc.hasNextLine()){
                 String line = sc.nextLine();
-                line = line.replaceAll("hello","hii");
-                word.append(line).append("\n");
+                line = line.replaceAll("hii","hello");
+                word.append(line).append('\n');
 
             }
             sc.close();
