@@ -1,4 +1,4 @@
-package fileHandling;
+package serializeDemo;
 
 import java.io.*;
 
