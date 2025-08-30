@@ -26,7 +26,7 @@ class Student extends SerializingInheritenceDemo{
 
 class Main{
     public static void main(String[] args) {
-        Student s = new Student("Lithesh",21,"male");
+        Student s = new Student("Lithe",21,"male");
 
         try {
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("example.txt"));

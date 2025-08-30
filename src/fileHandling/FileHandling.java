@@ -36,26 +36,35 @@ public class FileHandling {
             }
             sc.close();
             bw.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println();
         }
 
+        BufferedReader br = null;
         try {
-            BufferedReader br =  new BufferedReader(new FileReader("hello.txt"));
+            br = new BufferedReader(new FileReader("hello.txt"));
             String line;
             System.out.println("The text inside the file is: ");
-            while((line = br.readLine())!= null){
+            while ((line = br.readLine()) != null) {
                 System.out.println(line);
             }
 
-            br.close();
+
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
 
-        if (file.delete()){
+        if (file.delete()) {
             System.out.println("File Deleted Successfully: ");
-        }else{
+        } else {
             System.out.println("File does not exist");
         }
     }

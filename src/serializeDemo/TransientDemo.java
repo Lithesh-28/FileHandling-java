@@ -1,4 +1,4 @@
-package fileHandling;
+package serializeDemo;
 
 import java.io.*;
 
@@ -12,7 +12,7 @@ public class TransientDemo implements Serializable {
     }
 
     public static void main(String[] args) {
-        TransientDemo t = new TransientDemo("Lithesh",21);
+        TransientDemo t = new TransientDemo("Lithe",21);
 
         try {
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("example.txt"));
@@ -27,10 +27,10 @@ public class TransientDemo implements Serializable {
             TransientDemo t2 = (TransientDemo) ois.readObject();
             System.out.println("name: "+t2.name+" age: "+t2.age);
             ois.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
+        System.out.println(t.age);
     }
 }

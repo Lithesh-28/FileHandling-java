@@ -25,9 +25,7 @@ public class SerializeCollection {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("example.txt"));
             List<Integer> list2 = (List<Integer>) ois.readObject();
             System.out.println(list2);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
 

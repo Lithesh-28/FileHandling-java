@@ -27,14 +27,14 @@ public class Externalization implements Externalizable {
     }
 
     @Override
-    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+    public void readExternal(ObjectInput in) throws IOException {
         id = in.readInt();
     }
 
     public static void main(String[] args) {
         Externalization s = new Externalization();
         s.setId(10);
-        s.setName("Lithesh");
+        s.setName("Lithe");
 
         try {
             FileOutputStream fos = new FileOutputStream("test.txt");
@@ -42,7 +42,9 @@ public class Externalization implements Externalizable {
             oos.writeObject(s);
 
             System.out.println("Object Serialized ");
-        }catch (IOException e){}
+        }catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         try{
             FileInputStream fis = new FileInputStream("test.txt");
@@ -52,7 +54,9 @@ public class Externalization implements Externalizable {
             System.out.println("Deserialization is done ");
             System.out.println("Student id "+e.getId());
             System.out.println("Student name "+e.getName());
-        }catch (IOException | ClassNotFoundException e){}
+        }catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
 
     }

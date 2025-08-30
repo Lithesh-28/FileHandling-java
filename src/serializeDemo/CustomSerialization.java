@@ -13,11 +13,13 @@ public class CustomSerialization implements Serializable {
         this.id = id;
     }
 
+    @Serial
     private void writeObject(ObjectOutputStream out) throws IOException {
         out.writeObject(userName);
         out.writeInt(id);
     }
 
+    @Serial
     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
          userName = (String) in.readObject();
          id = in.readInt();
@@ -34,7 +36,7 @@ public class CustomSerialization implements Serializable {
     }
 
     public static void main(String[] args) {
-        CustomSerialization u1 = new CustomSerialization("Lithesh123","lith@123",101);
+        CustomSerialization u1 = new CustomSerialization("Lithe123","lith@123",101);
 
         try {
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("example.txt"));
@@ -48,12 +50,9 @@ public class CustomSerialization implements Serializable {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("example.txt"));
             CustomSerialization u2 = (CustomSerialization) ois.readObject();
             System.out.println("After deserialization: "+u2);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
 
 
     }

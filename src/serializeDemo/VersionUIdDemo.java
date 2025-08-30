@@ -26,7 +26,7 @@ public class VersionUIdDemo implements Serializable {
         try {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("example.txt"));
             VersionUIdDemo v2 = (VersionUIdDemo) ois.readObject();
-            System.out.println("Name: "+v2.name+" Age: "+v2.age);
+            System.out.println("Name: "+v2.name+" Age: "+v2.age+" Gender: "+v2.gender);
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
